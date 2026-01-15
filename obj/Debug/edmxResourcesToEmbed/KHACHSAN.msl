@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KHACHSANStoreContainer" CdmEntityContainer="QUAN_LI_KHACH_SANEntities">
+    <EntitySetMapping Name="Funcs">
+      <EntityTypeMapping TypeName="KHACHSAN.Func">
+        <MappingFragment StoreEntitySet="Func">
+          <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
+          <ScalarProperty Name="SORT" ColumnName="SORT" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+          <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+          <ScalarProperty Name="MENU" ColumnName="MENU" />
+          <ScalarProperty Name="TIPS" ColumnName="TIPS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="KHACHSAN.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UId" ColumnName="UId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Passwd" ColumnName="Passwd" />
+          <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+          <ScalarProperty Name="MaDVI" ColumnName="MaDVI" />
+          <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CongTies">
+      <EntityTypeMapping TypeName="KHACHSAN.CongTy">
+        <MappingFragment StoreEntitySet="CongTy">
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="TenCTY" ColumnName="TenCTY" />
+          <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonVis">
+      <EntityTypeMapping TypeName="KHACHSAN.DonVi">
+        <MappingFragment StoreEntitySet="DonVi">
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="TenDVI" ColumnName="TenDVI" />
+          <ScalarProperty Name="MaDVI" ColumnName="MaDVI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="KHACHSAN.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="IdKH" ColumnName="IdKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phong_ThietBi">
+      <EntityTypeMapping TypeName="KHACHSAN.Phong_ThietBi">
+        <MappingFragment StoreEntitySet="Phong_ThietBi">
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="IdThietBi" ColumnName="IdThietBi" />
+          <ScalarProperty Name="IdPhong" ColumnName="IdPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tangs">
+      <EntityTypeMapping TypeName="KHACHSAN.Tang">
+        <MappingFragment StoreEntitySet="Tang">
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="TenTang" ColumnName="TenTang" />
+          <ScalarProperty Name="IdTang" ColumnName="IdTang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Params">
+      <EntityTypeMapping TypeName="KHACHSAN.Param">
+        <MappingFragment StoreEntitySet="Param">
+          <ScalarProperty Name="TenDVI" ColumnName="TenDVI" />
+          <ScalarProperty Name="TenCTY" ColumnName="TenCTY" />
+          <ScalarProperty Name="MaDVI" ColumnName="MaDVI" />
+          <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatPhong_ChiTiet">
+      <EntityTypeMapping TypeName="KHACHSAN.DatPhong_ChiTiet">
+        <MappingFragment StoreEntitySet="DatPhong_ChiTiet">
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoNgayO" ColumnName="SoNgayO" />
+          <ScalarProperty Name="IdPhong" ColumnName="IdPhong" />
+          <ScalarProperty Name="IdDatPhong" ColumnName="IdDatPhong" />
+          <ScalarProperty Name="IdDPCT" ColumnName="IdDPCT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiPhongs">
+      <EntityTypeMapping TypeName="KHACHSAN.LoaiPhong">
+        <MappingFragment StoreEntitySet="LoaiPhong">
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="SoGiuong" ColumnName="SoGiuong" />
+          <ScalarProperty Name="SoNguoi" ColumnName="SoNguoi" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
+          <ScalarProperty Name="IdLoaiPhong" ColumnName="IdLoaiPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThietBis">
+      <EntityTypeMapping TypeName="KHACHSAN.ThietBi">
+        <MappingFragment StoreEntitySet="ThietBi">
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="TenTB" ColumnName="TenTB" />
+          <ScalarProperty Name="IdTB" ColumnName="IdTB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatPhong_SanPham">
+      <EntityTypeMapping TypeName="KHACHSAN.DatPhong_SanPham">
+        <MappingFragment StoreEntitySet="DatPhong_SanPham">
+          <ScalarProperty Name="IdDPCT" ColumnName="IdDPCT" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="IdSP" ColumnName="IdSP" />
+          <ScalarProperty Name="IdPhong" ColumnName="IdPhong" />
+          <ScalarProperty Name="IdDatPhong" ColumnName="IdDatPhong" />
+          <ScalarProperty Name="IDDPSP" ColumnName="IDDPSP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DatPhongs">
+      <EntityTypeMapping TypeName="KHACHSAN.DatPhong">
+        <MappingFragment StoreEntitySet="DatPhong">
+          <ScalarProperty Name="PhuongThucThanhToan" ColumnName="PhuongThucThanhToan" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_date" ColumnName="Update_date" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="TheoDoan" ColumnName="TheoDoan" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="MaDVI" ColumnName="MaDVI" />
+          <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+          <ScalarProperty Name="UId" ColumnName="UId" />
+          <ScalarProperty Name="SoNguoiO" ColumnName="SoNguoiO" />
+          <ScalarProperty Name="NgayTraPhong" ColumnName="NgayTraPhong" />
+          <ScalarProperty Name="NgayDatPhong" ColumnName="NgayDatPhong" />
+          <ScalarProperty Name="IdKH" ColumnName="IdKH" />
+          <ScalarProperty Name="IdDatPhong" ColumnName="IdDatPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phongs">
+      <EntityTypeMapping TypeName="KHACHSAN.Phong">
+        <MappingFragment StoreEntitySet="Phong">
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="IdLoaiPhong" ColumnName="IdLoaiPhong" />
+          <ScalarProperty Name="IdTang" ColumnName="IdTang" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+          <ScalarProperty Name="IdPhong" ColumnName="IdPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="KHACHSAN.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+          <ScalarProperty Name="IdSP" ColumnName="IdSP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,1137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KHACHSAN.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CongTy">
+          <Key>
+            <PropertyRef Name="MaCTY" />
+          </Key>
+          <Property Name="MaCTY" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenCTY" Type="nvarchar" MaxLength="50" />
+          <Property Name="DienThoai" Type="varchar" MaxLength="12" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="DatPhong">
+          <Key>
+            <PropertyRef Name="IdDatPhong" />
+          </Key>
+          <Property Name="IdDatPhong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdKH" Type="int" Nullable="false" />
+          <Property Name="NgayDatPhong" Type="datetime" />
+          <Property Name="NgayTraPhong" Type="datetime" />
+          <Property Name="SoNguoiO" Type="int" />
+          <Property Name="UId" Type="int" Nullable="false" />
+          <Property Name="MaCTY" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaDVI" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Disabled" Type="bit" />
+          <Property Name="TheoDoan" Type="bit" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Update_date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="SoTien" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="PhuongThucThanhToan" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DatPhong_ChiTiet">
+          <Key>
+            <PropertyRef Name="IdDPCT" />
+          </Key>
+          <Property Name="IdDPCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDatPhong" Type="int" Nullable="false" />
+          <Property Name="IdPhong" Type="int" Nullable="false" />
+          <Property Name="SoNgayO" Type="int" />
+          <Property Name="DonGia" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="ThanhTien" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="Ngay" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DatPhong_SanPham">
+          <Key>
+            <PropertyRef Name="IDDPSP" />
+          </Key>
+          <Property Name="IDDPSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDatPhong" Type="int" Nullable="false" />
+          <Property Name="IdPhong" Type="int" />
+          <Property Name="IdSP" Type="int" />
+          <Property Name="Ngay" Type="datetime" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="DonGia" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="ThanhTien" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="IdDPCT" Type="int" />
+        </EntityType>
+        <EntityType Name="DonVi">
+          <Key>
+            <PropertyRef Name="MaDVI" />
+          </Key>
+          <Property Name="MaDVI" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenDVI" Type="nchar" MaxLength="50" />
+          <Property Name="DienThoai" Type="varchar" MaxLength="12" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaCTY" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="Func">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+            <PropertyRef Name="SORT" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SORT" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="ISGROUP" Type="bit" />
+          <Property Name="PARENT" Type="nvarchar" MaxLength="50" />
+          <Property Name="MENU" Type="bit" />
+          <Property Name="TIPS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="IdKH" />
+          </Key>
+          <Property Name="IdKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="CCCD" Type="char" MaxLength="12" />
+          <Property Name="DienThoai" Type="char" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="LoaiPhong">
+          <Key>
+            <PropertyRef Name="IdLoaiPhong" />
+          </Key>
+          <Property Name="IdLoaiPhong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiPhong" Type="nvarchar" MaxLength="50" />
+          <Property Name="DonGia" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="SoNguoi" Type="int" />
+          <Property Name="SoGiuong" Type="int" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="Param">
+          <Key>
+            <PropertyRef Name="MaCTY" />
+            <PropertyRef Name="MaDVI" />
+          </Key>
+          <Property Name="MaCTY" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaDVI" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TenCTY" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenDVI" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="IdPhong" />
+          </Key>
+          <Property Name="IdPhong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenPhong" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdTang" Type="int" Nullable="false" />
+          <Property Name="IdLoaiPhong" Type="int" Nullable="false" />
+          <Property Name="Disabled" Type="bit" />
+          <Property Name="HinhAnh" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Phong_ThietBi">
+          <Key>
+            <PropertyRef Name="IdPhong" />
+            <PropertyRef Name="IdThietBi" />
+          </Key>
+          <Property Name="IdPhong" Type="int" Nullable="false" />
+          <Property Name="IdThietBi" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="SanPham">
+          <Key>
+            <PropertyRef Name="IdSP" />
+          </Key>
+          <Property Name="IdSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenSP" Type="nvarchar" MaxLength="50" />
+          <Property Name="DonGia" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="Disabled" Type="bit" />
+          <Property Name="HinhAnh" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Tang">
+          <Key>
+            <PropertyRef Name="IdTang" />
+          </Key>
+          <Property Name="IdTang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTang" Type="nvarchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="ThietBi">
+          <Key>
+            <PropertyRef Name="IdTB" />
+          </Key>
+          <Property Name="IdTB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTB" Type="nvarchar" MaxLength="50" />
+          <Property Name="DonGia" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Passwd" Type="varchar" MaxLength="50" />
+          <Property Name="MaCTY" Type="char" MaxLength="10" />
+          <Property Name="MaDVI" Type="char" MaxLength="10" />
+          <Property Name="IsGroup" Type="bit" />
+          <Property Name="Disabled" Type="bit" />
+        </EntityType>
+        <Association Name="FK_DatPhong_ChiTiet_DatPhong">
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="1" />
+          <End Role="DatPhong_ChiTiet" Type="Self.DatPhong_ChiTiet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatPhong">
+              <PropertyRef Name="IdDatPhong" />
+            </Principal>
+            <Dependent Role="DatPhong_ChiTiet">
+              <PropertyRef Name="IdDatPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_ChiTiet_Phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="DatPhong_ChiTiet" Type="Self.DatPhong_ChiTiet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="IdPhong" />
+            </Principal>
+            <Dependent Role="DatPhong_ChiTiet">
+              <PropertyRef Name="IdPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="IdKH" />
+            </Principal>
+            <Dependent Role="DatPhong">
+              <PropertyRef Name="IdKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_SanPham_DatPhong">
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="1" />
+          <End Role="DatPhong_SanPham" Type="Self.DatPhong_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatPhong">
+              <PropertyRef Name="IdDatPhong" />
+            </Principal>
+            <Dependent Role="DatPhong_SanPham">
+              <PropertyRef Name="IdDatPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_SanPham_Phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+          <End Role="DatPhong_SanPham" Type="Self.DatPhong_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="IdPhong" />
+            </Principal>
+            <Dependent Role="DatPhong_SanPham">
+              <PropertyRef Name="IdPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_SanPham_SanPham">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+          <End Role="DatPhong_SanPham" Type="Self.DatPhong_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="IdSP" />
+            </Principal>
+            <Dependent Role="DatPhong_SanPham">
+              <PropertyRef Name="IdSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UId" />
+            </Principal>
+            <Dependent Role="DatPhong">
+              <PropertyRef Name="UId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Param_CongTy">
+          <End Role="CongTy" Type="Self.CongTy" Multiplicity="1" />
+          <End Role="Param" Type="Self.Param" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CongTy">
+              <PropertyRef Name="MaCTY" />
+            </Principal>
+            <Dependent Role="Param">
+              <PropertyRef Name="MaCTY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Param_DonVi">
+          <End Role="DonVi" Type="Self.DonVi" Multiplicity="1" />
+          <End Role="Param" Type="Self.Param" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="MaDVI" />
+            </Principal>
+            <Dependent Role="Param">
+              <PropertyRef Name="MaDVI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_LoaiPhong">
+          <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiPhong">
+              <PropertyRef Name="IdLoaiPhong" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="IdLoaiPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_Tang">
+          <End Role="Tang" Type="Self.Tang" Multiplicity="1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tang">
+              <PropertyRef Name="IdTang" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="IdTang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_ThietBi_Phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="Phong_ThietBi" Type="Self.Phong_ThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="IdPhong" />
+            </Principal>
+            <Dependent Role="Phong_ThietBi">
+              <PropertyRef Name="IdPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_ThietBi_ThietBi">
+          <End Role="ThietBi" Type="Self.ThietBi" Multiplicity="1" />
+          <End Role="Phong_ThietBi" Type="Self.Phong_ThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThietBi">
+              <PropertyRef Name="IdTB" />
+            </Principal>
+            <Dependent Role="Phong_ThietBi">
+              <PropertyRef Name="IdThietBi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_CongTy">
+          <End Role="CongTy" Type="Self.CongTy" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CongTy">
+              <PropertyRef Name="MaCTY" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="MaCTY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_DonVi">
+          <End Role="DonVi" Type="Self.DonVi" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="MaDVI" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="MaDVI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KHACHSANStoreContainer">
+          <EntitySet Name="CongTy" EntityType="Self.CongTy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatPhong" EntityType="Self.DatPhong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatPhong_ChiTiet" EntityType="Self.DatPhong_ChiTiet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatPhong_SanPham" EntityType="Self.DatPhong_SanPham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonVi" EntityType="Self.DonVi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Func" EntityType="Self.Func" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiPhong" EntityType="Self.LoaiPhong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Param" EntityType="Self.Param" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phong_ThietBi" EntityType="Self.Phong_ThietBi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tang" EntityType="Self.Tang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThietBi" EntityType="Self.ThietBi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DatPhong_ChiTiet_DatPhong" Association="Self.FK_DatPhong_ChiTiet_DatPhong">
+            <End Role="DatPhong" EntitySet="DatPhong" />
+            <End Role="DatPhong_ChiTiet" EntitySet="DatPhong_ChiTiet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_ChiTiet_Phong" Association="Self.FK_DatPhong_ChiTiet_Phong">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="DatPhong_ChiTiet" EntitySet="DatPhong_ChiTiet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_KhachHang" Association="Self.FK_DatPhong_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DatPhong" EntitySet="DatPhong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_SanPham_DatPhong" Association="Self.FK_DatPhong_SanPham_DatPhong">
+            <End Role="DatPhong" EntitySet="DatPhong" />
+            <End Role="DatPhong_SanPham" EntitySet="DatPhong_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_SanPham_Phong" Association="Self.FK_DatPhong_SanPham_Phong">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="DatPhong_SanPham" EntitySet="DatPhong_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_SanPham_SanPham" Association="Self.FK_DatPhong_SanPham_SanPham">
+            <End Role="SanPham" EntitySet="SanPham" />
+            <End Role="DatPhong_SanPham" EntitySet="DatPhong_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_Users" Association="Self.FK_DatPhong_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DatPhong" EntitySet="DatPhong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Param_CongTy" Association="Self.FK_Param_CongTy">
+            <End Role="CongTy" EntitySet="CongTy" />
+            <End Role="Param" EntitySet="Param" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Param_DonVi" Association="Self.FK_Param_DonVi">
+            <End Role="DonVi" EntitySet="DonVi" />
+            <End Role="Param" EntitySet="Param" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+            <End Role="LoaiPhong" EntitySet="LoaiPhong" />
+            <End Role="Phong" EntitySet="Phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_Tang" Association="Self.FK_Phong_Tang">
+            <End Role="Tang" EntitySet="Tang" />
+            <End Role="Phong" EntitySet="Phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_ThietBi_Phong" Association="Self.FK_Phong_ThietBi_Phong">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="Phong_ThietBi" EntitySet="Phong_ThietBi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_ThietBi_ThietBi" Association="Self.FK_Phong_ThietBi_ThietBi">
+            <End Role="ThietBi" EntitySet="ThietBi" />
+            <End Role="Phong_ThietBi" EntitySet="Phong_ThietBi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_CongTy" Association="Self.FK_Users_CongTy">
+            <End Role="CongTy" EntitySet="CongTy" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_DonVi" Association="Self.FK_Users_DonVi">
+            <End Role="DonVi" EntitySet="DonVi" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KHACHSAN" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Func">
+          <Key>
+            <PropertyRef Name="FUNC_CODE" />
+            <PropertyRef Name="SORT" />
+          </Key>
+          <Property Name="FUNC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SORT" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ISGROUP" Type="Boolean" />
+          <Property Name="PARENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MENU" Type="Boolean" />
+          <Property Name="TIPS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Passwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaCTY" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaDVI" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="IsGroup" Type="Boolean" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="CongTy" Relationship="KHACHSAN.FK_Users_CongTy" FromRole="User" ToRole="CongTy" />
+          <NavigationProperty Name="DonVi" Relationship="KHACHSAN.FK_Users_DonVi" FromRole="User" ToRole="DonVi" />
+          <NavigationProperty Name="DatPhongs" Relationship="KHACHSAN.FK_DatPhong_Users" FromRole="User" ToRole="DatPhong" />
+        </EntityType>
+        <EntityContainer Name="QUAN_LI_KHACH_SANEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Funcs" EntityType="Self.Func" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="CongTies" EntityType="KHACHSAN.CongTy" />
+          <AssociationSet Name="FK_Users_CongTy" Association="KHACHSAN.FK_Users_CongTy">
+            <End Role="CongTy" EntitySet="CongTies" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="DonVis" EntityType="KHACHSAN.DonVi" />
+          <AssociationSet Name="FK_Users_DonVi" Association="KHACHSAN.FK_Users_DonVi">
+            <End Role="DonVi" EntitySet="DonVis" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="KhachHangs" EntityType="KHACHSAN.KhachHang" />
+          <EntitySet Name="Phong_ThietBi" EntityType="KHACHSAN.Phong_ThietBi" />
+          <EntitySet Name="Tangs" EntityType="KHACHSAN.Tang" />
+          <EntitySet Name="Params" EntityType="KHACHSAN.Param" />
+          <AssociationSet Name="FK_Param_CongTy" Association="KHACHSAN.FK_Param_CongTy">
+            <End Role="CongTy" EntitySet="CongTies" />
+            <End Role="Param" EntitySet="Params" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Param_DonVi" Association="KHACHSAN.FK_Param_DonVi">
+            <End Role="DonVi" EntitySet="DonVis" />
+            <End Role="Param" EntitySet="Params" />
+          </AssociationSet>
+          <EntitySet Name="DatPhong_ChiTiet" EntityType="KHACHSAN.DatPhong_ChiTiet" />
+          <EntitySet Name="LoaiPhongs" EntityType="KHACHSAN.LoaiPhong" />
+          <EntitySet Name="ThietBis" EntityType="KHACHSAN.ThietBi" />
+          <AssociationSet Name="FK_Phong_ThietBi_ThietBi" Association="KHACHSAN.FK_Phong_ThietBi_ThietBi">
+            <End Role="ThietBi" EntitySet="ThietBis" />
+            <End Role="Phong_ThietBi" EntitySet="Phong_ThietBi" />
+          </AssociationSet>
+          <EntitySet Name="DatPhong_SanPham" EntityType="KHACHSAN.DatPhong_SanPham" />
+          <EntitySet Name="DatPhongs" EntityType="KHACHSAN.DatPhong" />
+          <AssociationSet Name="FK_DatPhong_ChiTiet_DatPhong" Association="KHACHSAN.FK_DatPhong_ChiTiet_DatPhong">
+            <End Role="DatPhong" EntitySet="DatPhongs" />
+            <End Role="DatPhong_ChiTiet" EntitySet="DatPhong_ChiTiet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_KhachHang" Association="KHACHSAN.FK_DatPhong_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="DatPhong" EntitySet="DatPhongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_SanPham_DatPhong" Association="KHACHSAN.FK_DatPhong_SanPham_DatPhong">
+            <End Role="DatPhong" EntitySet="DatPhongs" />
+            <End Role="DatPhong_SanPham" EntitySet="DatPhong_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_Users" Association="KHACHSAN.FK_DatPhong_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="DatPhong" EntitySet="DatPhongs" />
+          </AssociationSet>
+          <EntitySet Name="Phongs" EntityType="KHACHSAN.Phong" />
+          <EntitySet Name="SanPhams" EntityType="KHACHSAN.SanPham" />
+          <AssociationSet Name="FK_DatPhong_ChiTiet_Phong" Association="KHACHSAN.FK_DatPhong_ChiTiet_Phong">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="DatPhong_ChiTiet" EntitySet="DatPhong_ChiTiet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_SanPham_Phong" Association="KHACHSAN.FK_DatPhong_SanPham_Phong">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="DatPhong_SanPham" EntitySet="DatPhong_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatPhong_SanPham_SanPham" Association="KHACHSAN.FK_DatPhong_SanPham_SanPham">
+            <End Role="SanPham" EntitySet="SanPhams" />
+            <End Role="DatPhong_SanPham" EntitySet="DatPhong_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_LoaiPhong" Association="KHACHSAN.FK_Phong_LoaiPhong">
+            <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
+            <End Role="Phong" EntitySet="Phongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_Tang" Association="KHACHSAN.FK_Phong_Tang">
+            <End Role="Tang" EntitySet="Tangs" />
+            <End Role="Phong" EntitySet="Phongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_ThietBi_Phong" Association="KHACHSAN.FK_Phong_ThietBi_Phong">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="Phong_ThietBi" EntitySet="Phong_ThietBi" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="CongTy">
+          <Key>
+            <PropertyRef Name="MaCTY" />
+          </Key>
+          <Property Name="MaCTY" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenCTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="Users" Relationship="KHACHSAN.FK_Users_CongTy" FromRole="CongTy" ToRole="User" />
+          <NavigationProperty Name="Params" Relationship="KHACHSAN.FK_Param_CongTy" FromRole="CongTy" ToRole="Param" />
+        </EntityType>
+        <Association Name="FK_Users_CongTy">
+          <End Type="KHACHSAN.CongTy" Role="CongTy" Multiplicity="0..1" />
+          <End Type="KHACHSAN.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CongTy">
+              <PropertyRef Name="MaCTY" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="MaCTY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DonVi">
+          <Key>
+            <PropertyRef Name="MaDVI" />
+          </Key>
+          <Property Name="MaDVI" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenDVI" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaCTY" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="Users" Relationship="KHACHSAN.FK_Users_DonVi" FromRole="DonVi" ToRole="User" />
+          <NavigationProperty Name="Params" Relationship="KHACHSAN.FK_Param_DonVi" FromRole="DonVi" ToRole="Param" />
+        </EntityType>
+        <Association Name="FK_Users_DonVi">
+          <End Type="KHACHSAN.DonVi" Role="DonVi" Multiplicity="0..1" />
+          <End Type="KHACHSAN.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="MaDVI" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="MaDVI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="IdKH" />
+          </Key>
+          <Property Name="IdKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="DienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="DatPhongs" Relationship="KHACHSAN.FK_DatPhong_KhachHang" FromRole="KhachHang" ToRole="DatPhong" />
+        </EntityType>
+        <EntityType Name="Phong_ThietBi">
+          <Key>
+            <PropertyRef Name="IdPhong" />
+            <PropertyRef Name="IdThietBi" />
+          </Key>
+          <Property Name="IdPhong" Type="Int32" Nullable="false" />
+          <Property Name="IdThietBi" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="ThietBi" Relationship="KHACHSAN.FK_Phong_ThietBi_ThietBi" FromRole="Phong_ThietBi" ToRole="ThietBi" />
+          <NavigationProperty Name="Phong" Relationship="KHACHSAN.FK_Phong_ThietBi_Phong" FromRole="Phong_ThietBi" ToRole="Phong" />
+        </EntityType>
+        <EntityType Name="Tang">
+          <Key>
+            <PropertyRef Name="IdTang" />
+          </Key>
+          <Property Name="IdTang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="Phongs" Relationship="KHACHSAN.FK_Phong_Tang" FromRole="Tang" ToRole="Phong" />
+        </EntityType>
+        <EntityType Name="Param">
+          <Key>
+            <PropertyRef Name="MaCTY" />
+            <PropertyRef Name="MaDVI" />
+          </Key>
+          <Property Name="MaCTY" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaDVI" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TenCTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenDVI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CongTy" Relationship="KHACHSAN.FK_Param_CongTy" FromRole="Param" ToRole="CongTy" />
+          <NavigationProperty Name="DonVi" Relationship="KHACHSAN.FK_Param_DonVi" FromRole="Param" ToRole="DonVi" />
+        </EntityType>
+        <Association Name="FK_Param_CongTy">
+          <End Type="KHACHSAN.CongTy" Role="CongTy" Multiplicity="1" />
+          <End Type="KHACHSAN.Param" Role="Param" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CongTy">
+              <PropertyRef Name="MaCTY" />
+            </Principal>
+            <Dependent Role="Param">
+              <PropertyRef Name="MaCTY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Param_DonVi">
+          <End Type="KHACHSAN.DonVi" Role="DonVi" Multiplicity="1" />
+          <End Type="KHACHSAN.Param" Role="Param" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="MaDVI" />
+            </Principal>
+            <Dependent Role="Param">
+              <PropertyRef Name="MaDVI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DatPhong_ChiTiet">
+          <Key>
+            <PropertyRef Name="IdDPCT" />
+          </Key>
+          <Property Name="IdDPCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDatPhong" Type="Int32" Nullable="false" />
+          <Property Name="IdPhong" Type="Int32" Nullable="false" />
+          <Property Name="SoNgayO" Type="Int32" />
+          <Property Name="DonGia" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="ThanhTien" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="Ngay" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DatPhong" Relationship="KHACHSAN.FK_DatPhong_ChiTiet_DatPhong" FromRole="DatPhong_ChiTiet" ToRole="DatPhong" />
+          <NavigationProperty Name="Phong" Relationship="KHACHSAN.FK_DatPhong_ChiTiet_Phong" FromRole="DatPhong_ChiTiet" ToRole="Phong" />
+        </EntityType>
+        <EntityType Name="LoaiPhong">
+          <Key>
+            <PropertyRef Name="IdLoaiPhong" />
+          </Key>
+          <Property Name="IdLoaiPhong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="SoNguoi" Type="Int32" />
+          <Property Name="SoGiuong" Type="Int32" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="Phongs" Relationship="KHACHSAN.FK_Phong_LoaiPhong" FromRole="LoaiPhong" ToRole="Phong" />
+        </EntityType>
+        <EntityType Name="ThietBi">
+          <Key>
+            <PropertyRef Name="IdTB" />
+          </Key>
+          <Property Name="IdTB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="Disabled" Type="Boolean" />
+          <NavigationProperty Name="Phong_ThietBi" Relationship="KHACHSAN.FK_Phong_ThietBi_ThietBi" FromRole="ThietBi" ToRole="Phong_ThietBi" />
+        </EntityType>
+        <Association Name="FK_Phong_ThietBi_ThietBi">
+          <End Type="KHACHSAN.ThietBi" Role="ThietBi" Multiplicity="1" />
+          <End Type="KHACHSAN.Phong_ThietBi" Role="Phong_ThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThietBi">
+              <PropertyRef Name="IdTB" />
+            </Principal>
+            <Dependent Role="Phong_ThietBi">
+              <PropertyRef Name="IdThietBi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DatPhong_SanPham">
+          <Key>
+            <PropertyRef Name="IDDPSP" />
+          </Key>
+          <Property Name="IDDPSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDatPhong" Type="Int32" Nullable="false" />
+          <Property Name="IdPhong" Type="Int32" />
+          <Property Name="IdSP" Type="Int32" />
+          <Property Name="Ngay" Type="DateTime" Precision="3" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="DonGia" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="ThanhTien" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="IdDPCT" Type="Int32" />
+          <NavigationProperty Name="DatPhong" Relationship="KHACHSAN.FK_DatPhong_SanPham_DatPhong" FromRole="DatPhong_SanPham" ToRole="DatPhong" />
+          <NavigationProperty Name="Phong" Relationship="KHACHSAN.FK_DatPhong_SanPham_Phong" FromRole="DatPhong_SanPham" ToRole="Phong" />
+          <NavigationProperty Name="SanPham" Relationship="KHACHSAN.FK_DatPhong_SanPham_SanPham" FromRole="DatPhong_SanPham" ToRole="SanPham" />
+        </EntityType>
+        <EntityType Name="DatPhong">
+          <Key>
+            <PropertyRef Name="IdDatPhong" />
+          </Key>
+          <Property Name="IdDatPhong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdKH" Type="Int32" Nullable="false" />
+          <Property Name="NgayDatPhong" Type="DateTime" Precision="3" />
+          <Property Name="NgayTraPhong" Type="DateTime" Precision="3" />
+          <Property Name="SoNguoiO" Type="Int32" />
+          <Property Name="UId" Type="Int32" Nullable="false" />
+          <Property Name="MaCTY" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaDVI" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Disabled" Type="Boolean" />
+          <Property Name="TheoDoan" Type="Boolean" />
+          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Update_date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="SoTien" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="PhuongThucThanhToan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DatPhong_ChiTiet" Relationship="KHACHSAN.FK_DatPhong_ChiTiet_DatPhong" FromRole="DatPhong" ToRole="DatPhong_ChiTiet" />
+          <NavigationProperty Name="KhachHang" Relationship="KHACHSAN.FK_DatPhong_KhachHang" FromRole="DatPhong" ToRole="KhachHang" />
+          <NavigationProperty Name="DatPhong_SanPham" Relationship="KHACHSAN.FK_DatPhong_SanPham_DatPhong" FromRole="DatPhong" ToRole="DatPhong_SanPham" />
+          <NavigationProperty Name="User" Relationship="KHACHSAN.FK_DatPhong_Users" FromRole="DatPhong" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_DatPhong_ChiTiet_DatPhong">
+          <End Type="KHACHSAN.DatPhong" Role="DatPhong" Multiplicity="1" />
+          <End Type="KHACHSAN.DatPhong_ChiTiet" Role="DatPhong_ChiTiet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatPhong">
+              <PropertyRef Name="IdDatPhong" />
+            </Principal>
+            <Dependent Role="DatPhong_ChiTiet">
+              <PropertyRef Name="IdDatPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_KhachHang">
+          <End Type="KHACHSAN.KhachHang" Role="KhachHang" Multiplicity="1" />
+          <End Type="KHACHSAN.DatPhong" Role="DatPhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="IdKH" />
+            </Principal>
+            <Dependent Role="DatPhong">
+              <PropertyRef Name="IdKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_SanPham_DatPhong">
+          <End Type="KHACHSAN.DatPhong" Role="DatPhong" Multiplicity="1" />
+          <End Type="KHACHSAN.DatPhong_SanPham" Role="DatPhong_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatPhong">
+              <PropertyRef Name="IdDatPhong" />
+            </Principal>
+            <Dependent Role="DatPhong_SanPham">
+              <PropertyRef Name="IdDatPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_Users">
+          <End Type="KHACHSAN.User" Role="User" Multiplicity="1" />
+          <End Type="KHACHSAN.DatPhong" Role="DatPhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UId" />
+            </Principal>
+            <Dependent Role="DatPhong">
+              <PropertyRef Name="UId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="IdPhong" />
+          </Key>
+          <Property Name="IdPhong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdTang" Type="Int32" Nullable="false" />
+          <Property Name="IdLoaiPhong" Type="Int32" Nullable="false" />
+          <Property Name="Disabled" Type="Boolean" />
+          <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DatPhong_ChiTiet" Relationship="KHACHSAN.FK_DatPhong_ChiTiet_Phong" FromRole="Phong" ToRole="DatPhong_ChiTiet" />
+          <NavigationProperty Name="DatPhong_SanPham" Relationship="KHACHSAN.FK_DatPhong_SanPham_Phong" FromRole="Phong" ToRole="DatPhong_SanPham" />
+          <NavigationProperty Name="LoaiPhong" Relationship="KHACHSAN.FK_Phong_LoaiPhong" FromRole="Phong" ToRole="LoaiPhong" />
+          <NavigationProperty Name="Tang" Relationship="KHACHSAN.FK_Phong_Tang" FromRole="Phong" ToRole="Tang" />
+          <NavigationProperty Name="Phong_ThietBi" Relationship="KHACHSAN.FK_Phong_ThietBi_Phong" FromRole="Phong" ToRole="Phong_ThietBi" />
+        </EntityType>
+        <EntityType Name="SanPham">
+          <Key>
+            <PropertyRef Name="IdSP" />
+          </Key>
+          <Property Name="IdSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+          <Property Name="Disabled" Type="Boolean" />
+          <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DatPhong_SanPham" Relationship="KHACHSAN.FK_DatPhong_SanPham_SanPham" FromRole="SanPham" ToRole="DatPhong_SanPham" />
+        </EntityType>
+        <Association Name="FK_DatPhong_ChiTiet_Phong">
+          <End Type="KHACHSAN.Phong" Role="Phong" Multiplicity="1" />
+          <End Type="KHACHSAN.DatPhong_ChiTiet" Role="DatPhong_ChiTiet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="IdPhong" />
+            </Principal>
+            <Dependent Role="DatPhong_ChiTiet">
+              <PropertyRef Name="IdPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_SanPham_Phong">
+          <End Type="KHACHSAN.Phong" Role="Phong" Multiplicity="0..1" />
+          <End Type="KHACHSAN.DatPhong_SanPham" Role="DatPhong_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="IdPhong" />
+            </Principal>
+            <Dependent Role="DatPhong_SanPham">
+              <PropertyRef Name="IdPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatPhong_SanPham_SanPham">
+          <End Type="KHACHSAN.SanPham" Role="SanPham" Multiplicity="0..1" />
+          <End Type="KHACHSAN.DatPhong_SanPham" Role="DatPhong_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="IdSP" />
+            </Principal>
+            <Dependent Role="DatPhong_SanPham">
+              <PropertyRef Name="IdSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_LoaiPhong">
+          <End Type="KHACHSAN.LoaiPhong" Role="LoaiPhong" Multiplicity="1" />
+          <End Type="KHACHSAN.Phong" Role="Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiPhong">
+              <PropertyRef Name="IdLoaiPhong" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="IdLoaiPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_Tang">
+          <End Type="KHACHSAN.Tang" Role="Tang" Multiplicity="1" />
+          <End Type="KHACHSAN.Phong" Role="Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tang">
+              <PropertyRef Name="IdTang" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="IdTang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_ThietBi_Phong">
+          <End Type="KHACHSAN.Phong" Role="Phong" Multiplicity="1" />
+          <End Type="KHACHSAN.Phong_ThietBi" Role="Phong_ThietBi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="IdPhong" />
+            </Principal>
+            <Dependent Role="Phong_ThietBi">
+              <PropertyRef Name="IdPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KHACHSANStoreContainer" CdmEntityContainer="QUAN_LI_KHACH_SANEntities">
+          <EntitySetMapping Name="Funcs">
+            <EntityTypeMapping TypeName="KHACHSAN.Func">
+              <MappingFragment StoreEntitySet="Func">
+                <ScalarProperty Name="FUNC_CODE" ColumnName="FUNC_CODE" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ISGROUP" ColumnName="ISGROUP" />
+                <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+                <ScalarProperty Name="MENU" ColumnName="MENU" />
+                <ScalarProperty Name="TIPS" ColumnName="TIPS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="KHACHSAN.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UId" ColumnName="UId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Passwd" ColumnName="Passwd" />
+                <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+                <ScalarProperty Name="MaDVI" ColumnName="MaDVI" />
+                <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CongTies">
+            <EntityTypeMapping TypeName="KHACHSAN.CongTy">
+              <MappingFragment StoreEntitySet="CongTy">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="TenCTY" ColumnName="TenCTY" />
+                <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonVis">
+            <EntityTypeMapping TypeName="KHACHSAN.DonVi">
+              <MappingFragment StoreEntitySet="DonVi">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="TenDVI" ColumnName="TenDVI" />
+                <ScalarProperty Name="MaDVI" ColumnName="MaDVI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="KHACHSAN.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="IdKH" ColumnName="IdKH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phong_ThietBi">
+            <EntityTypeMapping TypeName="KHACHSAN.Phong_ThietBi">
+              <MappingFragment StoreEntitySet="Phong_ThietBi">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="IdThietBi" ColumnName="IdThietBi" />
+                <ScalarProperty Name="IdPhong" ColumnName="IdPhong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tangs">
+            <EntityTypeMapping TypeName="KHACHSAN.Tang">
+              <MappingFragment StoreEntitySet="Tang">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="TenTang" ColumnName="TenTang" />
+                <ScalarProperty Name="IdTang" ColumnName="IdTang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Params">
+            <EntityTypeMapping TypeName="KHACHSAN.Param">
+              <MappingFragment StoreEntitySet="Param">
+                <ScalarProperty Name="TenDVI" ColumnName="TenDVI" />
+                <ScalarProperty Name="TenCTY" ColumnName="TenCTY" />
+                <ScalarProperty Name="MaDVI" ColumnName="MaDVI" />
+                <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatPhong_ChiTiet">
+            <EntityTypeMapping TypeName="KHACHSAN.DatPhong_ChiTiet">
+              <MappingFragment StoreEntitySet="DatPhong_ChiTiet">
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoNgayO" ColumnName="SoNgayO" />
+                <ScalarProperty Name="IdPhong" ColumnName="IdPhong" />
+                <ScalarProperty Name="IdDatPhong" ColumnName="IdDatPhong" />
+                <ScalarProperty Name="IdDPCT" ColumnName="IdDPCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiPhongs">
+            <EntityTypeMapping TypeName="KHACHSAN.LoaiPhong">
+              <MappingFragment StoreEntitySet="LoaiPhong">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="SoGiuong" ColumnName="SoGiuong" />
+                <ScalarProperty Name="SoNguoi" ColumnName="SoNguoi" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
+                <ScalarProperty Name="IdLoaiPhong" ColumnName="IdLoaiPhong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThietBis">
+            <EntityTypeMapping TypeName="KHACHSAN.ThietBi">
+              <MappingFragment StoreEntitySet="ThietBi">
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="TenTB" ColumnName="TenTB" />
+                <ScalarProperty Name="IdTB" ColumnName="IdTB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatPhong_SanPham">
+            <EntityTypeMapping TypeName="KHACHSAN.DatPhong_SanPham">
+              <MappingFragment StoreEntitySet="DatPhong_SanPham">
+                <ScalarProperty Name="IdDPCT" ColumnName="IdDPCT" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="IdSP" ColumnName="IdSP" />
+                <ScalarProperty Name="IdPhong" ColumnName="IdPhong" />
+                <ScalarProperty Name="IdDatPhong" ColumnName="IdDatPhong" />
+                <ScalarProperty Name="IDDPSP" ColumnName="IDDPSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatPhongs">
+            <EntityTypeMapping TypeName="KHACHSAN.DatPhong">
+              <MappingFragment StoreEntitySet="DatPhong">
+                <ScalarProperty Name="PhuongThucThanhToan" ColumnName="PhuongThucThanhToan" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_date" ColumnName="Update_date" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="TheoDoan" ColumnName="TheoDoan" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MaDVI" ColumnName="MaDVI" />
+                <ScalarProperty Name="MaCTY" ColumnName="MaCTY" />
+                <ScalarProperty Name="UId" ColumnName="UId" />
+                <ScalarProperty Name="SoNguoiO" ColumnName="SoNguoiO" />
+                <ScalarProperty Name="NgayTraPhong" ColumnName="NgayTraPhong" />
+                <ScalarProperty Name="NgayDatPhong" ColumnName="NgayDatPhong" />
+                <ScalarProperty Name="IdKH" ColumnName="IdKH" />
+                <ScalarProperty Name="IdDatPhong" ColumnName="IdDatPhong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phongs">
+            <EntityTypeMapping TypeName="KHACHSAN.Phong">
+              <MappingFragment StoreEntitySet="Phong">
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="IdLoaiPhong" ColumnName="IdLoaiPhong" />
+                <ScalarProperty Name="IdTang" ColumnName="IdTang" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="IdPhong" ColumnName="IdPhong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SanPhams">
+            <EntityTypeMapping TypeName="KHACHSAN.SanPham">
+              <MappingFragment StoreEntitySet="SanPham">
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="IdSP" ColumnName="IdSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

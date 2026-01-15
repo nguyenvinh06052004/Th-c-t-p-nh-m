@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cabda1807bc54e4795cfba1d5a6812ae" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="KHACHSAN.Func" Width="1.5" PointX="5.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHACHSAN.User" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHACHSAN.CongTy" Width="1.5" PointX="0.75" PointY="14" />
+        <AssociationConnector Association="KHACHSAN.FK_Users_CongTy" />
+        <EntityTypeShape EntityType="KHACHSAN.DonVi" Width="1.5" PointX="0.75" PointY="17.875" />
+        <AssociationConnector Association="KHACHSAN.FK_Users_DonVi" />
+        <EntityTypeShape EntityType="KHACHSAN.KhachHang" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="KHACHSAN.Phong_ThietBi" Width="1.5" PointX="8.25" PointY="4.625" />
+        <EntityTypeShape EntityType="KHACHSAN.Tang" Width="1.5" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="KHACHSAN.Param" Width="1.5" PointX="5.375" PointY="3.75" />
+        <AssociationConnector Association="KHACHSAN.FK_Param_CongTy" />
+        <AssociationConnector Association="KHACHSAN.FK_Param_DonVi" />
+        <EntityTypeShape EntityType="KHACHSAN.DatPhong_ChiTiet" Width="1.5" PointX="7.875" PointY="12.625" />
+        <EntityTypeShape EntityType="KHACHSAN.LoaiPhong" Width="1.5" PointX="1.125" PointY="4.625" />
+        <EntityTypeShape EntityType="KHACHSAN.ThietBi" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="KHACHSAN.FK_Phong_ThietBi_ThietBi" />
+        <EntityTypeShape EntityType="KHACHSAN.DatPhong_SanPham" Width="1.5" PointX="10.625" PointY="7.625" />
+        <EntityTypeShape EntityType="KHACHSAN.DatPhong" Width="1.5" PointX="5.25" PointY="12.75" />
+        <AssociationConnector Association="KHACHSAN.FK_DatPhong_ChiTiet_DatPhong" />
+        <AssociationConnector Association="KHACHSAN.FK_DatPhong_KhachHang" />
+        <AssociationConnector Association="KHACHSAN.FK_DatPhong_SanPham_DatPhong" />
+        <AssociationConnector Association="KHACHSAN.FK_DatPhong_Users" />
+        <EntityTypeShape EntityType="KHACHSAN.Phong" Width="1.5" PointX="3.375" PointY="7.25" />
+        <EntityTypeShape EntityType="KHACHSAN.SanPham" Width="1.5" PointX="8.375" PointY="8.25" />
+        <AssociationConnector Association="KHACHSAN.FK_DatPhong_ChiTiet_Phong" />
+        <AssociationConnector Association="KHACHSAN.FK_DatPhong_SanPham_Phong" />
+        <AssociationConnector Association="KHACHSAN.FK_DatPhong_SanPham_SanPham" />
+        <AssociationConnector Association="KHACHSAN.FK_Phong_LoaiPhong" />
+        <AssociationConnector Association="KHACHSAN.FK_Phong_Tang" />
+        <AssociationConnector Association="KHACHSAN.FK_Phong_ThietBi_Phong" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
